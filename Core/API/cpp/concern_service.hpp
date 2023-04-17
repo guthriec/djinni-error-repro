@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include "concern.pb.h"
+#include "CoreAPIProto/cpp/concern.pb.h"
 #include <cstdint>
 #include <memory>
 

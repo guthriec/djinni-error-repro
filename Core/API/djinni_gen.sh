@@ -6,6 +6,7 @@ rm -r wasm/*; \
 rm -r ts/*; \
 ../../../djinni/src/run \
     --wasm-out wasm \
+    --wasm-include-cpp-prefix 'cpp/' \
     --ts-out ts \
     --ts-module core \
     --java-out java \

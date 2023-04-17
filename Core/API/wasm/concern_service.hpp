@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include "concern_service.hpp"
+#include "cpp/concern_service.hpp"
 #include "djinni_wasm.hpp"
 
 namespace djinni_generated {

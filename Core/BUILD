@@ -12,8 +12,7 @@ cc_library(
     "Implementation/*.hpp",
   ]),
   includes = [
-    "API/cpp",
-    "API/CoreAPIProto/cpp",
+    "API",
     "Implementation/cpp",
   ],
   deps = [
@@ -38,6 +37,8 @@ cc_binary(
     ]),
     copts = [
         "-fexceptions",
+        "-Wno-error",
+        "-Wno-unused-function",
     ],
     linkopts = EMSCRIPTEN_LINKOPTS,
     deps = [

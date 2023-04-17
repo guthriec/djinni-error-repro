@@ -1,1 +1,1 @@
-build --cxxopt=-std=c++17 --incompatible_java_common_parameters=false --cxxopt="-Wno-error"
+build --cxxopt=-std=c++17 --incompatible_java_common_parameters=false --copt=-Wno-unused-function --host_copt=-Wno-unused-function
