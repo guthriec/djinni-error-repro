@@ -1,4 +1,4 @@
-// source: concern_service.proto
+// source: concern.proto
 /**
  * @fileoverview
  * @enhanceable

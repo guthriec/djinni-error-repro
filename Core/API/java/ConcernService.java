@@ -4,7 +4,7 @@
 package my.package.core;
 
 import com.snapchat.djinni.NativeObjectManager;
-import core.api.proto.ConcernService.RenderableConcern;
+import core.api.proto.Concern.RenderableConcern;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public abstract class ConcernService {

@@ -1,0 +1,10 @@
+syntax = "proto2";
+
+package core.api.proto;
+
+option objc_class_prefix = "SUIP";
+option optimize_for = LITE_RUNTIME;
+
+message RenderableConcern {
+    optional uint64 concern_id = 1;
+}

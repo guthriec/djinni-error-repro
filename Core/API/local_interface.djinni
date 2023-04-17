@@ -1,4 +1,4 @@
-@protobuf "concern_service_djinni_manifest.yaml"
+@protobuf "concern_djinni_manifest.yaml"
 
 concern_service = interface +c {
   static create(): concern_service;

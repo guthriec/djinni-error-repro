@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include "concern_service.pb.h"
+#include "concern.pb.h"
 #include <cstdint>
 #include <memory>
 

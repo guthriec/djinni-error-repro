@@ -1,0 +1,8 @@
+cpp:
+    header: '"concern.pb.h"'
+    namespace: 'core::api::proto'
+java:
+    class: 'core.api.proto.Concern'
+
+messages:
+    - RenderableConcern
