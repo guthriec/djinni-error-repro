@@ -30,7 +30,6 @@
 #include "google/protobuf/repeated_field.h"  // IWYU pragma: export
 #include "google/protobuf/extension_set.h"  // IWYU pragma: export
 #include "google/protobuf/generated_enum_util.h"
-#include "sources.pb.h"
 // @@protoc_insertion_point(includes)
 
 // Must be included last.
@@ -210,89 +209,8 @@ class RenderableConcern final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kTitleFieldNumber = 2,
-    kPreviewFieldNumber = 3,
-    kUrlFieldNumber = 4,
-    kSourceFieldNumber = 5,
     kConcernIdFieldNumber = 1,
   };
-  // optional string title = 2;
-  bool has_title() const;
-  void clear_title() ;
-  const std::string& title() const;
-
-
-
-
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_title(Arg_&& arg, Args_... args);
-  std::string* mutable_title();
-  PROTOBUF_NODISCARD std::string* release_title();
-  void set_allocated_title(std::string* ptr);
-
-  private:
-  const std::string& _internal_title() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_title(
-      const std::string& value);
-  std::string* _internal_mutable_title();
-
-  public:
-  // optional string preview = 3;
-  bool has_preview() const;
-  void clear_preview() ;
-  const std::string& preview() const;
-
-
-
-
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_preview(Arg_&& arg, Args_... args);
-  std::string* mutable_preview();
-  PROTOBUF_NODISCARD std::string* release_preview();
-  void set_allocated_preview(std::string* ptr);
-
-  private:
-  const std::string& _internal_preview() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_preview(
-      const std::string& value);
-  std::string* _internal_mutable_preview();
-
-  public:
-  // optional string url = 4;
-  bool has_url() const;
-  void clear_url() ;
-  const std::string& url() const;
-
-
-
-
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_url(Arg_&& arg, Args_... args);
-  std::string* mutable_url();
-  PROTOBUF_NODISCARD std::string* release_url();
-  void set_allocated_url(std::string* ptr);
-
-  private:
-  const std::string& _internal_url() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_url(
-      const std::string& value);
-  std::string* _internal_mutable_url();
-
-  public:
-  // optional .core.api.proto.RenderableSource source = 5;
-  bool has_source() const;
-  void clear_source() ;
-  const ::core::api::proto::RenderableSource& source() const;
-  PROTOBUF_NODISCARD ::core::api::proto::RenderableSource* release_source();
-  ::core::api::proto::RenderableSource* mutable_source();
-  void set_allocated_source(::core::api::proto::RenderableSource* source);
-  private:
-  const ::core::api::proto::RenderableSource& _internal_source() const;
-  ::core::api::proto::RenderableSource* _internal_mutable_source();
-  public:
-  void unsafe_arena_set_allocated_source(
-      ::core::api::proto::RenderableSource* source);
-  ::core::api::proto::RenderableSource* unsafe_arena_release_source();
   // optional uint64 concern_id = 1;
   bool has_concern_id() const;
   void clear_concern_id() ;
@@ -314,10 +232,6 @@ class RenderableConcern final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr title_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr preview_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr url_;
-    ::core::api::proto::RenderableSource* source_;
     ::uint64_t concern_id_;
   };
   union { Impl_ _impl_; };
@@ -634,12 +548,12 @@ class GetConcernResponse final :
 
 // optional uint64 concern_id = 1;
 inline bool RenderableConcern::has_concern_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline void RenderableConcern::clear_concern_id() {
   _impl_.concern_id_ = ::uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline ::uint64_t RenderableConcern::concern_id() const {
   // @@protoc_insertion_point(field_get:core.api.proto.RenderableConcern.concern_id)
@@ -653,287 +567,8 @@ inline ::uint64_t RenderableConcern::_internal_concern_id() const {
   return _impl_.concern_id_;
 }
 inline void RenderableConcern::_internal_set_concern_id(::uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.concern_id_ = value;
-}
-
-// optional string title = 2;
-inline bool RenderableConcern::has_title() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline void RenderableConcern::clear_title() {
-  _impl_.title_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline const std::string& RenderableConcern::title() const {
-  // @@protoc_insertion_point(field_get:core.api.proto.RenderableConcern.title)
-  return _internal_title();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void RenderableConcern::set_title(Arg_&& arg,
-                                                     Args_... args) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.title_.Set(static_cast<Arg_&&>(arg), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:core.api.proto.RenderableConcern.title)
-}
-inline std::string* RenderableConcern::mutable_title() {
-  std::string* _s = _internal_mutable_title();
-  // @@protoc_insertion_point(field_mutable:core.api.proto.RenderableConcern.title)
-  return _s;
-}
-inline const std::string& RenderableConcern::_internal_title() const {
-  return _impl_.title_.Get();
-}
-inline void RenderableConcern::_internal_set_title(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-
-
-  _impl_.title_.Set(value, GetArenaForAllocation());
-}
-inline std::string* RenderableConcern::_internal_mutable_title() {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  return _impl_.title_.Mutable( GetArenaForAllocation());
-}
-inline std::string* RenderableConcern::release_title() {
-  // @@protoc_insertion_point(field_release:core.api.proto.RenderableConcern.title)
-  if ((_impl_._has_bits_[0] & 0x00000001u) == 0) {
-    return nullptr;
-  }
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  auto* released = _impl_.title_.Release();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  _impl_.title_.Set("", GetArenaForAllocation());
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return released;
-}
-inline void RenderableConcern::set_allocated_title(std::string* value) {
-  if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-  _impl_.title_.SetAllocated(value, GetArenaForAllocation());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        if (_impl_.title_.IsDefault()) {
-          _impl_.title_.Set("", GetArenaForAllocation());
-        }
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:core.api.proto.RenderableConcern.title)
-}
-
-// optional string preview = 3;
-inline bool RenderableConcern::has_preview() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline void RenderableConcern::clear_preview() {
-  _impl_.preview_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline const std::string& RenderableConcern::preview() const {
-  // @@protoc_insertion_point(field_get:core.api.proto.RenderableConcern.preview)
-  return _internal_preview();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void RenderableConcern::set_preview(Arg_&& arg,
-                                                     Args_... args) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.preview_.Set(static_cast<Arg_&&>(arg), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:core.api.proto.RenderableConcern.preview)
-}
-inline std::string* RenderableConcern::mutable_preview() {
-  std::string* _s = _internal_mutable_preview();
-  // @@protoc_insertion_point(field_mutable:core.api.proto.RenderableConcern.preview)
-  return _s;
-}
-inline const std::string& RenderableConcern::_internal_preview() const {
-  return _impl_.preview_.Get();
-}
-inline void RenderableConcern::_internal_set_preview(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-
-
-  _impl_.preview_.Set(value, GetArenaForAllocation());
-}
-inline std::string* RenderableConcern::_internal_mutable_preview() {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  return _impl_.preview_.Mutable( GetArenaForAllocation());
-}
-inline std::string* RenderableConcern::release_preview() {
-  // @@protoc_insertion_point(field_release:core.api.proto.RenderableConcern.preview)
-  if ((_impl_._has_bits_[0] & 0x00000002u) == 0) {
-    return nullptr;
-  }
-  _impl_._has_bits_[0] &= ~0x00000002u;
-  auto* released = _impl_.preview_.Release();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  _impl_.preview_.Set("", GetArenaForAllocation());
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return released;
-}
-inline void RenderableConcern::set_allocated_preview(std::string* value) {
-  if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000002u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
-  }
-  _impl_.preview_.SetAllocated(value, GetArenaForAllocation());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        if (_impl_.preview_.IsDefault()) {
-          _impl_.preview_.Set("", GetArenaForAllocation());
-        }
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:core.api.proto.RenderableConcern.preview)
-}
-
-// optional string url = 4;
-inline bool RenderableConcern::has_url() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
-  return value;
-}
-inline void RenderableConcern::clear_url() {
-  _impl_.url_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000004u;
-}
-inline const std::string& RenderableConcern::url() const {
-  // @@protoc_insertion_point(field_get:core.api.proto.RenderableConcern.url)
-  return _internal_url();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void RenderableConcern::set_url(Arg_&& arg,
-                                                     Args_... args) {
-  _impl_._has_bits_[0] |= 0x00000004u;
-  _impl_.url_.Set(static_cast<Arg_&&>(arg), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:core.api.proto.RenderableConcern.url)
-}
-inline std::string* RenderableConcern::mutable_url() {
-  std::string* _s = _internal_mutable_url();
-  // @@protoc_insertion_point(field_mutable:core.api.proto.RenderableConcern.url)
-  return _s;
-}
-inline const std::string& RenderableConcern::_internal_url() const {
-  return _impl_.url_.Get();
-}
-inline void RenderableConcern::_internal_set_url(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
-
-
-  _impl_.url_.Set(value, GetArenaForAllocation());
-}
-inline std::string* RenderableConcern::_internal_mutable_url() {
-  _impl_._has_bits_[0] |= 0x00000004u;
-  return _impl_.url_.Mutable( GetArenaForAllocation());
-}
-inline std::string* RenderableConcern::release_url() {
-  // @@protoc_insertion_point(field_release:core.api.proto.RenderableConcern.url)
-  if ((_impl_._has_bits_[0] & 0x00000004u) == 0) {
-    return nullptr;
-  }
-  _impl_._has_bits_[0] &= ~0x00000004u;
-  auto* released = _impl_.url_.Release();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  _impl_.url_.Set("", GetArenaForAllocation());
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return released;
-}
-inline void RenderableConcern::set_allocated_url(std::string* value) {
-  if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000004u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000004u;
-  }
-  _impl_.url_.SetAllocated(value, GetArenaForAllocation());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        if (_impl_.url_.IsDefault()) {
-          _impl_.url_.Set("", GetArenaForAllocation());
-        }
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:core.api.proto.RenderableConcern.url)
-}
-
-// optional .core.api.proto.RenderableSource source = 5;
-inline bool RenderableConcern::has_source() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.source_ != nullptr);
-  return value;
-}
-inline const ::core::api::proto::RenderableSource& RenderableConcern::_internal_source() const {
-  const ::core::api::proto::RenderableSource* p = _impl_.source_;
-  return p != nullptr ? *p : reinterpret_cast<const ::core::api::proto::RenderableSource&>(
-      ::core::api::proto::_RenderableSource_default_instance_);
-}
-inline const ::core::api::proto::RenderableSource& RenderableConcern::source() const {
-  // @@protoc_insertion_point(field_get:core.api.proto.RenderableConcern.source)
-  return _internal_source();
-}
-inline void RenderableConcern::unsafe_arena_set_allocated_source(
-    ::core::api::proto::RenderableSource* source) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.source_);
-  }
-  _impl_.source_ = source;
-  if (source) {
-    _impl_._has_bits_[0] |= 0x00000008u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000008u;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:core.api.proto.RenderableConcern.source)
-}
-inline ::core::api::proto::RenderableSource* RenderableConcern::release_source() {
-  _impl_._has_bits_[0] &= ~0x00000008u;
-  ::core::api::proto::RenderableSource* temp = _impl_.source_;
-  _impl_.source_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
-}
-inline ::core::api::proto::RenderableSource* RenderableConcern::unsafe_arena_release_source() {
-  // @@protoc_insertion_point(field_release:core.api.proto.RenderableConcern.source)
-  _impl_._has_bits_[0] &= ~0x00000008u;
-  ::core::api::proto::RenderableSource* temp = _impl_.source_;
-  _impl_.source_ = nullptr;
-  return temp;
-}
-inline ::core::api::proto::RenderableSource* RenderableConcern::_internal_mutable_source() {
-  _impl_._has_bits_[0] |= 0x00000008u;
-  if (_impl_.source_ == nullptr) {
-    auto* p = CreateMaybeMessage<::core::api::proto::RenderableSource>(GetArenaForAllocation());
-    _impl_.source_ = p;
-  }
-  return _impl_.source_;
-}
-inline ::core::api::proto::RenderableSource* RenderableConcern::mutable_source() {
-  ::core::api::proto::RenderableSource* _msg = _internal_mutable_source();
-  // @@protoc_insertion_point(field_mutable:core.api.proto.RenderableConcern.source)
-  return _msg;
-}
-inline void RenderableConcern::set_allocated_source(::core::api::proto::RenderableSource* source) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.source_);
-  }
-  if (source) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(source));
-    if (message_arena != submessage_arena) {
-      source = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, source, submessage_arena);
-    }
-    _impl_._has_bits_[0] |= 0x00000008u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000008u;
-  }
-  _impl_.source_ = source;
-  // @@protoc_insertion_point(field_set_allocated:core.api.proto.RenderableConcern.source)
 }
 
 // -------------------------------------------------------------------

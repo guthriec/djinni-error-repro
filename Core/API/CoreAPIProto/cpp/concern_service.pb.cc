@@ -22,19 +22,6 @@ PROTOBUF_CONSTEXPR RenderableConcern::RenderableConcern(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.title_)*/ {
-    &::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized {}
-  }
-
-  , /*decltype(_impl_.preview_)*/ {
-    &::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized {}
-  }
-
-  , /*decltype(_impl_.url_)*/ {
-    &::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized {}
-  }
-
-  , /*decltype(_impl_.source_)*/nullptr
   , /*decltype(_impl_.concern_id_)*/ ::uint64_t{0u}
 } {}
 struct RenderableConcernDefaultTypeInternal {
@@ -149,78 +136,19 @@ class RenderableConcern::_Internal {
   static constexpr ::int32_t kHasBitsOffset =
     8 * PROTOBUF_FIELD_OFFSET(RenderableConcern, _impl_._has_bits_);
   static void set_has_concern_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
-  }
-  static void set_has_title(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
-  }
-  static void set_has_preview(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_url(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
-  static const ::core::api::proto::RenderableSource& source(const RenderableConcern* msg);
-  static void set_has_source(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
   }
 };
 
-const ::core::api::proto::RenderableSource&
-RenderableConcern::_Internal::source(const RenderableConcern* msg) {
-  return *msg->_impl_.source_;
-}
-void RenderableConcern::clear_source() {
-  if (_impl_.source_ != nullptr) _impl_.source_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000008u;
-}
 RenderableConcern::RenderableConcern(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:core.api.proto.RenderableConcern)
 }
 RenderableConcern::RenderableConcern(const RenderableConcern& from)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite() {
-  RenderableConcern* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_._has_bits_){from._impl_._has_bits_}
-    , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.title_) {}
-
-    , decltype(_impl_.preview_) {}
-
-    , decltype(_impl_.url_) {}
-
-    , decltype(_impl_.source_){nullptr}
-    , decltype(_impl_.concern_id_) {}
-  };
-
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
-  _impl_.title_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        _impl_.title_.Set("", GetArenaForAllocation());
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if ((from._impl_._has_bits_[0] & 0x00000001u) != 0) {
-    _this->_impl_.title_.Set(from._internal_title(), _this->GetArenaForAllocation());
-  }
-  _impl_.preview_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        _impl_.preview_.Set("", GetArenaForAllocation());
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if ((from._impl_._has_bits_[0] & 0x00000002u) != 0) {
-    _this->_impl_.preview_.Set(from._internal_preview(), _this->GetArenaForAllocation());
-  }
-  _impl_.url_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        _impl_.url_.Set("", GetArenaForAllocation());
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if ((from._impl_._has_bits_[0] & 0x00000004u) != 0) {
-    _this->_impl_.url_.Set(from._internal_url(), _this->GetArenaForAllocation());
-  }
-  if ((from._impl_._has_bits_[0] & 0x00000008u) != 0) {
-    _this->_impl_.source_ = new ::core::api::proto::RenderableSource(*from._impl_.source_);
-  }
-  _this->_impl_.concern_id_ = from._impl_.concern_id_;
+  : ::PROTOBUF_NAMESPACE_ID::MessageLite(), _impl_(from._impl_) {
+  _internal_metadata_.MergeFrom<std::string>(
+      from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:core.api.proto.RenderableConcern)
 }
 
@@ -229,28 +157,9 @@ inline void RenderableConcern::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.title_) {}
-
-    , decltype(_impl_.preview_) {}
-
-    , decltype(_impl_.url_) {}
-
-    , decltype(_impl_.source_){nullptr}
     , decltype(_impl_.concern_id_) { ::uint64_t{0u} }
 
   };
-  _impl_.title_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        _impl_.title_.Set("", GetArenaForAllocation());
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  _impl_.preview_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        _impl_.preview_.Set("", GetArenaForAllocation());
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  _impl_.url_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        _impl_.url_.Set("", GetArenaForAllocation());
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 RenderableConcern::~RenderableConcern() {
@@ -264,10 +173,6 @@ RenderableConcern::~RenderableConcern() {
 
 inline void RenderableConcern::SharedDtor() {
   ABSL_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.title_.Destroy();
-  _impl_.preview_.Destroy();
-  _impl_.url_.Destroy();
-  if (this != internal_default_instance()) delete _impl_.source_;
 }
 
 void RenderableConcern::SetCachedSize(int size) const {
@@ -280,22 +185,6 @@ void RenderableConcern::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
-    if (cached_has_bits & 0x00000001u) {
-      _impl_.title_.ClearNonDefaultToEmpty();
-    }
-    if (cached_has_bits & 0x00000002u) {
-      _impl_.preview_.ClearNonDefaultToEmpty();
-    }
-    if (cached_has_bits & 0x00000004u) {
-      _impl_.url_.ClearNonDefaultToEmpty();
-    }
-    if (cached_has_bits & 0x00000008u) {
-      ABSL_DCHECK(_impl_.source_ != nullptr);
-      _impl_.source_->Clear();
-    }
-  }
   _impl_.concern_id_ = ::uint64_t{0u};
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<std::string>();
@@ -313,45 +202,6 @@ const char* RenderableConcern::_InternalParse(const char* ptr, ::_pbi::ParseCont
         if (PROTOBUF_PREDICT_TRUE(static_cast<::uint8_t>(tag) == 8)) {
           _Internal::set_has_concern_id(&has_bits);
           _impl_.concern_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else {
-          goto handle_unusual;
-        }
-        continue;
-      // optional string title = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::uint8_t>(tag) == 18)) {
-          auto str = _internal_mutable_title();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(ptr);
-        } else {
-          goto handle_unusual;
-        }
-        continue;
-      // optional string preview = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::uint8_t>(tag) == 26)) {
-          auto str = _internal_mutable_preview();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(ptr);
-        } else {
-          goto handle_unusual;
-        }
-        continue;
-      // optional string url = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::uint8_t>(tag) == 34)) {
-          auto str = _internal_mutable_url();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(ptr);
-        } else {
-          goto handle_unusual;
-        }
-        continue;
-      // optional .core.api.proto.RenderableSource source = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::uint8_t>(tag) == 42)) {
-          ptr = ctx->ParseMessage(_internal_mutable_source(), ptr);
           CHK_(ptr);
         } else {
           goto handle_unusual;
@@ -389,35 +239,10 @@ failure:
 
   cached_has_bits = _impl_._has_bits_[0];
   // optional uint64 concern_id = 1;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt64ToArray(
         1, this->_internal_concern_id(), target);
-  }
-
-  // optional string title = 2;
-  if (cached_has_bits & 0x00000001u) {
-    const std::string& _s = this->_internal_title();
-    target = stream->WriteStringMaybeAliased(2, _s, target);
-  }
-
-  // optional string preview = 3;
-  if (cached_has_bits & 0x00000002u) {
-    const std::string& _s = this->_internal_preview();
-    target = stream->WriteStringMaybeAliased(3, _s, target);
-  }
-
-  // optional string url = 4;
-  if (cached_has_bits & 0x00000004u) {
-    const std::string& _s = this->_internal_url();
-    target = stream->WriteStringMaybeAliased(4, _s, target);
-  }
-
-  // optional .core.api.proto.RenderableSource source = 5;
-  if (cached_has_bits & 0x00000008u) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(5, _Internal::source(this),
-        _Internal::source(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -436,40 +261,13 @@ failure:
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  // optional uint64 concern_id = 1;
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000001fu) {
-    // optional string title = 2;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += 1 + ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-                                      this->_internal_title());
-    }
-
-    // optional string preview = 3;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += 1 + ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-                                      this->_internal_preview());
-    }
-
-    // optional string url = 4;
-    if (cached_has_bits & 0x00000004u) {
-      total_size += 1 + ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-                                      this->_internal_url());
-    }
-
-    // optional .core.api.proto.RenderableSource source = 5;
-    if (cached_has_bits & 0x00000008u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *_impl_.source_);
-    }
-
-    // optional uint64 concern_id = 1;
-    if (cached_has_bits & 0x00000010u) {
-      total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(
-          this->_internal_concern_id());
-    }
-
+  if (cached_has_bits & 0x00000001u) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(
+        this->_internal_concern_id());
   }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
   }
@@ -491,25 +289,8 @@ void RenderableConcern::MergeFrom(const RenderableConcern& from) {
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000001fu) {
-    if (cached_has_bits & 0x00000001u) {
-      _this->_internal_set_title(from._internal_title());
-    }
-    if (cached_has_bits & 0x00000002u) {
-      _this->_internal_set_preview(from._internal_preview());
-    }
-    if (cached_has_bits & 0x00000004u) {
-      _this->_internal_set_url(from._internal_url());
-    }
-    if (cached_has_bits & 0x00000008u) {
-      _this->_internal_mutable_source()->::core::api::proto::RenderableSource::MergeFrom(
-          from._internal_source());
-    }
-    if (cached_has_bits & 0x00000010u) {
-      _this->_impl_.concern_id_ = from._impl_.concern_id_;
-    }
-    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  if ((from._impl_._has_bits_[0] & 0x00000001u) != 0) {
+    _this->_internal_set_concern_id(from._internal_concern_id());
   }
   _this->_internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
 }
@@ -527,22 +308,10 @@ bool RenderableConcern::IsInitialized() const {
 
 void RenderableConcern::InternalSwap(RenderableConcern* other) {
   using std::swap;
-  auto* lhs_arena = GetArenaForAllocation();
-  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.title_, lhs_arena,
-                                       &other->_impl_.title_, rhs_arena);
-  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.preview_, lhs_arena,
-                                       &other->_impl_.preview_, rhs_arena);
-  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.url_, lhs_arena,
-                                       &other->_impl_.url_, rhs_arena);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(RenderableConcern, _impl_.concern_id_)
-      + sizeof(RenderableConcern::_impl_.concern_id_)
-      - PROTOBUF_FIELD_OFFSET(RenderableConcern, _impl_.source_)>(
-          reinterpret_cast<char*>(&_impl_.source_),
-          reinterpret_cast<char*>(&other->_impl_.source_));
+
+  swap(_impl_.concern_id_, other->_impl_.concern_id_);
 }
 
 std::string RenderableConcern::GetTypeName() const {
