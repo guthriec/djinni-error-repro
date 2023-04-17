@@ -1,4 +1,4 @@
-#include "concern_service.hpp"
+#include "cpp/concern_service.hpp"
 
 class ConcernServiceImpl : public ConcernService {
 public:
