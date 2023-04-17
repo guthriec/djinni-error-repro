@@ -1,0 +1,6 @@
+@protobuf "concern_service_djinni_manifest.yaml"
+
+concern_service = interface +c {
+  static create(): concern_service;
+  get_concern(concern_id: i64): RenderableConcern;
+}

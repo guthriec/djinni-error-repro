@@ -1,0 +1,9 @@
+cpp:
+    header: '"concern_service.pb.h"'
+    namespace: 'core::api::proto'
+java:
+    class: 'core.api.proto.ConcernService'
+
+messages:
+    - GetConcernRequest
+    - RenderableConcern

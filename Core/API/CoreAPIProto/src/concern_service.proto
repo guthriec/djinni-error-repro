@@ -1,0 +1,45 @@
+syntax = "proto2";
+
+package core.api.proto;
+
+import "sources.proto";
+
+option objc_class_prefix = "SUIP";
+option optimize_for = LITE_RUNTIME;
+
+message RenderableConcern {
+    optional uint64 concern_id = 1;
+    optional string title = 2;
+    optional string preview = 3;
+    optional string url = 4;
+    optional RenderableSource source = 5;
+}
+
+// Generated according to https://cloud.google.com/apis/design/standard_methods
+/*service Authenticator {
+  rpc Authenticate() returns (AuthenticationToken) {}
+}
+
+message AuthenticationToken {
+   optional string token = 1;
+   optional uint64 token_ttl_seconds = 2;
+}*/
+
+service ConcernFetcher {
+  rpc GetConcern(GetConcernRequest) returns (RenderableConcern) {}
+}
+
+message GetConcernRequest {
+  optional uint64 concern_id = 1;
+}
+
+enum GetConcernStatus {
+  GET_CONCERN_STATUS_UNKNOWN = 0;
+  GET_CONCERN_STATUS_OK = 1;
+  GET_CONCERN_STATUS_CONCERN_NOT_FOUND = 2;
+}
+
+message GetConcernResponse {
+  optional RenderableConcern concern = 1;
+  optional GetConcernStatus status = 2;
+}
